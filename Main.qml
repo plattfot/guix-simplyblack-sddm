@@ -15,12 +15,12 @@ Rectangle {
     Connections {
         target: sddm
 
-        onLoginSucceeded: {ff6e07
+        function onLoginSucceeded() {
             errorMessage.color = "#ff7f00"
             errorMessage.text = textConstants.loginSucceeded
         }
 
-        onLoginFailed: {
+        function onLoginFailed() {
             errorMessage.color = "red"
             errorMessage.text = textConstants.loginFailed
         }
@@ -55,7 +55,7 @@ Rectangle {
             anchors.horizontalCenterOffset: 0
             fillMode: Image.PreserveAspectFit
             transformOrigin: Item.Center
-            source: "guix.png"
+            source: "file:guix.png"
         }
 
         Rectangle {
@@ -106,7 +106,7 @@ Rectangle {
 
                         KeyNavigation.backtab: rebootButton; KeyNavigation.tab: password
 
-                        Keys.onPressed: {
+                        Keys.onPressed: (event) => {
                             if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
                                 sddm.login(name.text, password.text, session.index)
                                 event.accepted = true
@@ -142,7 +142,7 @@ Rectangle {
 
                         KeyNavigation.backtab: name; KeyNavigation.tab: session
 
-                        Keys.onPressed: {
+                        Keys.onPressed: (event) => {
                             if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
                                 sddm.login(name.text, password.text, session.index)
                                 event.accepted = true
@@ -178,7 +178,7 @@ Rectangle {
                             width: parent.width * 2 / 3; height: guix.height / 9
                             font.pixelSize: guix.height / 20
 
-                            arrowIcon: "angle-down.png"
+                            arrowIcon: "file:angle-down.png"
 
                             model: sessionModel
                             index: sessionModel.lastIndex
@@ -209,7 +209,7 @@ Rectangle {
                             width: (parent.width * 2 / 3) -10; height: guix.height / 9
                             font.pixelSize: guix.height / 20
 
-                            arrowIcon: "angle-down.png"
+                            arrowIcon: "file:angle-down.png"
 
                             KeyNavigation.backtab: session; KeyNavigation.tab: loginButton
                         }
