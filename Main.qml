@@ -106,7 +106,7 @@ Rectangle {
 
                         KeyNavigation.backtab: rebootButton; KeyNavigation.tab: password
 
-                        Keys.onPressed: {
+                        Keys.onPressed: (event) => {
                             if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
                                 sddm.login(name.text, password.text, session.index)
                                 event.accepted = true
@@ -142,7 +142,7 @@ Rectangle {
 
                         KeyNavigation.backtab: name; KeyNavigation.tab: session
 
-                        Keys.onPressed: {
+                        Keys.onPressed: (event) => {
                             if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
                                 sddm.login(name.text, password.text, session.index)
                                 event.accepted = true
