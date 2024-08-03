@@ -55,7 +55,7 @@ Rectangle {
             anchors.horizontalCenterOffset: 0
             fillMode: Image.PreserveAspectFit
             transformOrigin: Item.Center
-            source: "guix.png"
+            source: "file:guix.png"
         }
 
         Rectangle {
@@ -178,7 +178,7 @@ Rectangle {
                             width: parent.width * 2 / 3; height: guix.height / 9
                             font.pixelSize: guix.height / 20
 
-                            arrowIcon: "angle-down.png"
+                            arrowIcon: "file:angle-down.png"
 
                             model: sessionModel
                             index: sessionModel.lastIndex
@@ -209,7 +209,7 @@ Rectangle {
                             width: (parent.width * 2 / 3) -10; height: guix.height / 9
                             font.pixelSize: guix.height / 20
 
-                            arrowIcon: "angle-down.png"
+                            arrowIcon: "file:angle-down.png"
 
                             KeyNavigation.backtab: session; KeyNavigation.tab: loginButton
                         }
