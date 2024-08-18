@@ -1,5 +1,5 @@
 [SddmGreeterTheme]
-Name=Guix Pluto
+Name=Guix Simply Black
 Description=A simple SDDM theme for Guix
 Screenshot=screenshot.png
 License=CC-BY-SA
@@ -9,5 +9,5 @@ Screenshot=screenshot.png
 MainScript=Main.qml
 ConfigFile=theme.conf
 TranslationsDirectory=translations
-Theme-Id=guix-pluto
+Theme-Id=guix-simplyblack
 Theme-API=2.0
