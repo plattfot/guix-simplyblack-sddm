@@ -12,6 +12,7 @@ configuration and set `guix-simplyblack-sddm` as the theme in the
 
 # Testing
 
+## sddm-greeter
 For development run the following command in a bash compatible shell:
 
 ```bash
@@ -22,4 +23,14 @@ For Qt5 you can run:
 ```bash
     guix shell sddm-qt5 -- sddm-greeter --test-mode --theme $(guix build -f guix.scm)/share/sddm/themes/guix-simplyblack-sddm
 
+```
+
+## Virtual Machine
+
+The `sddm-greeter` in test mode can behave differently than when using
+it in a real configuration.  Therefore it is good to also test this in
+a virtual machine.
+
+```bash
+    $(guix system vm vm.scm) -m 1024 -smp 2 -nic user,model=virtio-net-pci
 ```
