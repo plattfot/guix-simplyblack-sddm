@@ -34,4 +34,20 @@
   (version (git-version (package-version guix-simplyblack-sddm-theme) "HEAD" %git-commit))
   (source (local-file %source-dir
                       #:recursive? #t
-                      #:select? skip-git-and-build-directory)))
+                      #:select? skip-git-and-build-directory))
+(arguments
+     `(#:modules ((guix build utils))
+       #:builder
+       (begin
+         (use-modules (guix build utils)
+                      (srfi srfi-26))
+         (let* ((out (assoc-ref %outputs "out"))
+                (themes-dir
+                 (string-append out "/share/sddm/themes/guix-simplyblack-sddm/")))
+           (mkdir-p themes-dir)
+           (copy-recursively
+            (assoc-ref %build-inputs "source")
+            themes-dir)
+           (substitute* (map (cut string-append themes-dir <>) '("Main.qml" "theme.conf"))
+             (("file:")
+              themes-dir)))))))
